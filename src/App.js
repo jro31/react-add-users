@@ -17,9 +17,11 @@ const App = () => {
     })
   }
 
+  const existingUserNames = () => (users.map((user) => (user.username.toLowerCase())));
+
   return (
     <div>
-      <UserInput onAddUser={addUserHandler} />
+      <UserInput onAddUser={addUserHandler} existingUserNames={existingUserNames()} />
       <UserList users={users} />
     </div>
   );

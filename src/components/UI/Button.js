@@ -1,6 +1,8 @@
 const Button = (props) => {
+  const handleClick = () => (props.onClick && props.onClick());
+
   return (
-    <button type={props.type}>{props.children}</button>
+    <button type={props.type} onClick={handleClick}>{props.children}</button>
   )
 }
 
