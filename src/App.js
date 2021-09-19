@@ -9,9 +9,17 @@ const App = () => {
     { username: 'Jethro', age: 36 }
   ]);
 
+  const addUserHandler = (newUser) => {
+    setUsers((prevUsers) => {
+      const updatedUsers = [...prevUsers];
+      updatedUsers.unshift({ username: newUser.username, age: newUser.age });
+      return updatedUsers;
+    })
+  }
+
   return (
     <div>
-      <UserInput />
+      <UserInput onAddUser={addUserHandler} />
       <UserList users={users} />
     </div>
   );
