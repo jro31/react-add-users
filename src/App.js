@@ -5,10 +5,7 @@ import UserList from './components/userList/UserList';
 import styles from './App.module.css';
 
 const App = () => {
-  const [users, setUsers] = useState([
-    { username: 'Jesus', age: 2021 },
-    { username: 'Jethro', age: 36 }
-  ]);
+  const [users, setUsers] = useState([]);
 
   const addUserHandler = (newUser) => {
     setUsers((prevUsers) => {
@@ -23,7 +20,7 @@ const App = () => {
   return (
     <div className={styles['components-container']}>
       <UserInput onAddUser={addUserHandler} existingUserNames={existingUserNames()} />
-      <UserList users={users} />
+      {users.length && <UserList users={users} />}
     </div>
   );
 }

@@ -34,6 +34,8 @@ const UserInput = (props) => {
       props.onAddUser(newUser);
       setEnteredUsername('');
       setEnteredAge('');
+      setUsernameIsValid(false);
+      setAgeIsValid(false);
       return;
     };
 
