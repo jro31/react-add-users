@@ -1,8 +1,10 @@
+import styles from './UserListItem.module.css';
+
 const UserListItem = (props) => {
   return (
-    <div>
-      {props.user.username}
-      {props.user.age}
+    <div className={styles['content-container']}>
+      <div>{props.user.username}</div>
+      <div>{`(${props.user.age} years old)`}</div>
     </div>
   )
 }

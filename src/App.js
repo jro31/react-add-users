@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
 import UserInput from './components/userInput/UserInput';
-import UserList from './components/userList/userList';
+import UserList from './components/userList/UserList';
+import styles from './App.module.css';
 
 const App = () => {
   const [users, setUsers] = useState([
@@ -20,7 +21,7 @@ const App = () => {
   const existingUserNames = () => (users.map((user) => (user.username.toLowerCase())));
 
   return (
-    <div>
+    <div className={styles['components-container']}>
       <UserInput onAddUser={addUserHandler} existingUserNames={existingUserNames()} />
       <UserList users={users} />
     </div>

@@ -1,7 +1,9 @@
 import { useState } from 'react';
 
 import Button from '../UI/Button';
+import Card from '../UI/Card';
 import Modal from '../UI/Modal';
+import styles from './UserInput.module.css';
 
 const UserInput = (props) => {
   const [enteredUsername, setEnteredUsername] = useState('');
@@ -58,24 +60,22 @@ const UserInput = (props) => {
   const hideModal = () => (setDisplayModal(false));
 
   return (
-    <form onSubmit={formSubmitHandler}>
-      <div>
-        <label>Username</label>
-        <input type='text' value={enteredUsername} onChange={usernameChangeHandler}></input>
-      </div>
-      <div>
-        <label>Age (years)</label>
-        <input type='number' value={enteredAge} onChange={ageChangeHandler}></input>
-      </div>
-      <div>
-        <Button type='submit'>Add User</Button>
-      </div>
-      <div>
-        {usernameIsValid.toString()}---
-        {ageIsValid.toString()}
-      </div>
-      {displayModal && <Modal text={modalText} onCancel={hideModal} />}
-    </form>
+    <Card>
+      <form className={styles['form-element']} onSubmit={formSubmitHandler}>
+        <div className={styles['input-container']}>
+          <label>Username</label>
+          <input type='text' value={enteredUsername} onChange={usernameChangeHandler}></input>
+        </div>
+        <div className={styles['input-container']}>
+          <label>Age (years)</label>
+          <input type='number' value={enteredAge} onChange={ageChangeHandler}></input>
+        </div>
+        <div>
+          <Button type='submit'>Add User</Button>
+        </div>
+        {displayModal && <Modal text={modalText} onCancel={hideModal} />}
+      </form>
+    </Card>
   )
 }
 
